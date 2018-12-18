@@ -4,9 +4,20 @@ class Simulator
   $caja2=[]
   $caja3=[]
   $caja4=[]
+  $time=0
   def initialize()
   end
   def simulator
+    multipleRows()
+    print "FILAS POR CAJA"
+    printCash()
+    print "SIMULACION DE ATENDER CADA CAJA"
+    attend()
+    puts "TIEMPO DE ATENCION PARA 20 PERSONAS CON MUCHAS FILAS  "
+    print $time
+    print " MINUTOS"
+  end
+  def multipleRows()
     $users.each_with_index do |element, index|
       #sleep rand(1..4)
       alterfile= rand(1..4)
@@ -20,41 +31,56 @@ class Simulator
         $caja4.push element
       end
     end
-    puts "fila 1"
-    puts $caja1
-    puts "caja 1"
-    puts " "
-    puts "fila 2"
-    puts $caja2
-    puts "caja 2"
-    puts " "
-    puts "fila 3"
-    puts $caja3
-    puts "caja 3"
-    puts " "
-    puts "fila 4"
-    puts $caja4
-    puts "caja 4"
-    puts " "
-
-    cajaAtendida=1
-    if cajaAtendida == 1
-      if $caja1.length > 0
-        $caja1.delete_at(0)
-        puts $caja1
+  end
+  def printCash()
+    if $caja1.length > 0
+      puts "caja 1"
+      puts $caja1
+      puts " "
+    end
+    if $caja2.length > 0
+      puts "caja 2"
+      puts $caja2
+      puts " "
+    end
+    if $caja3.length > 0
+      puts "caja 3"
+      puts $caja3
+      puts " "
+    end
+    if $caja4.length > 0
+      puts "caja 4"
+      puts $caja4
+      puts " "
+    end
+  end
+  def attend()
+    i=1
+    while i <= $users.length
+      $time=$time + rand(1..4)
+      cajaAtendida = rand(1..4)
+      if cajaAtendida == 1
+        if $caja1.length > 0
+          $caja1.delete_at(0)
+          i=i+1
+        end
+      elsif cajaAtendida == 2
+        if $caja2.length > 0
+          $caja2.delete_at(0)
+          i=i+1
+        end
+      elsif cajaAtendida == 3
+        if $caja3.length > 0
+          $caja3.delete_at(0)
+          i=i+1
+        end
+      elsif cajaAtendida == 4
+        if $caja4.length > 0
+          $caja4.delete_at(0)
+          i=i+1
+        end
       end
-    elsif cajaAtendida == 2
-      if $caja2.length > 0
-        $caja2.delete_at(0)
-      end
-    elsif cajaAtendida == 3
-      if $caja3.length > 0
-        $caja3.delete_at(0)
-      end
-    elsif cajaAtendida == 4
-      if $caja4.length > 0
-        $caja4.delete_at(0)
-      end
+      printCash()
     end
   end
 end
