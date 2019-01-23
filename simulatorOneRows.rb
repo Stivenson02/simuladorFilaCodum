@@ -1,5 +1,6 @@
 class Simulator
   $users = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t']
+  $row=[]
   $caja1=[]
   $caja2=[]
   $caja3=[]
@@ -8,51 +9,35 @@ class Simulator
   def initialize()
   end
   def simulator
-    multipleRows()
+    rowlist()
+    caja()
     print "FILAS POR CAJA"
-    printCash()
-    print "SIMULACION DE ATENDER CADA CAJA"
-    attend()
     puts "TIEMPO DE ATENCION PARA 20 PERSONAS CON MUCHAS FILAS  "
     print $time
     print " MINUTOS"
   end
-  def multipleRows()
+  def rowlist()
     $users.each_with_index do |element, index|
-      #sleep rand(1..4)
-      alterfile= rand(1..4)
-      if alterfile == 1
-        $caja1.push element
-      elsif alterfile == 2
-        $caja2.push element
-      elsif alterfile == 3
-        $caja3.push element
-      elsif alterfile == 4
-        $caja4.push element
-      end
+      #Cada 1 a 3 minutos llega un cliente a una fila
+      $time=$time + rand(1..3)
+      $row.push element
     end
   end
-  def printCash()
-    if $caja1.length > 0
-      puts "caja 1"
-      puts $caja1
-      puts " "
+  def caja()
+    #al ser una sola fila solo ahi una sola persona por caja
+    if $caja1.length <= 0
+      $caja1.push element
     end
-    if $caja2.length > 0
-      puts "caja 2"
-      puts $caja2
-      puts " "
+    if $caja2.length <= 0
+      $caja1.push element
     end
-    if $caja3.length > 0
-      puts "caja 3"
-      puts $caja3
-      puts " "
+    if $caja3.length <= 0
+      $caja1.push element
     end
-    if $caja4.length > 0
-      puts "caja 4"
-      puts $caja4
-      puts " "
+    if $caja4.length <= 0
+      $caja1.push element
     end
+    attend();
   end
   def attend()
     i=1
@@ -80,7 +65,7 @@ class Simulator
           i=i+1
         end
       end
-      printCash()
+      caja();
     end
   end
 end
