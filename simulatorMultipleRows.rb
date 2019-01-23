@@ -19,7 +19,9 @@ class Simulator
   end
   def multipleRows()
     $users.each_with_index do |element, index|
-      #sleep rand(1..4)
+      #Cada 1 a 3 minutos llega un cliente a una fila
+      $time=$time + rand(1..3)
+
       alterfile= rand(1..4)
       if alterfile == 1
         $caja1.push element
