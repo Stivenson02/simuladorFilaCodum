@@ -9,9 +9,13 @@ class Simulator
   def initialize()
   end
   def simulator
-    rowlist()
+    rowlist
+    print "FILA"
+    print $row
+    puts " "
+    puts $time
+    puts "MINUTOS"
     caja()
-    print "FILAS POR CAJA"
     puts "TIEMPO DE ATENCION PARA 20 PERSONAS CON MUCHAS FILAS  "
     print $time
     print " MINUTOS"
@@ -39,11 +43,20 @@ class Simulator
       else
         attend()
       end
-
     end
-
   end
   def attend()
+    puts "CAJA 1"
+    puts $caja1
+
+    puts "CAJA 2"
+    puts $caja2
+
+    puts "CAJA 3"
+    puts $caja3
+
+    puts "CAJA 4"
+    puts $caja4
     if $caja1.length >= 1
       $time=$time + rand(1..4)
         $caja1.delete_at(0)
