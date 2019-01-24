@@ -60,6 +60,7 @@ class Simulator
       $time=$time + rand(1..4)
         $caja4.delete_at(0)
     end
+    $row.delete_at(0)
   end
 end
 #init
