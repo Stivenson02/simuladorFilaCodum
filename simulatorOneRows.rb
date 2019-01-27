@@ -1,14 +1,19 @@
-class Simulator
+class SimulatorOneRows
+attr_accessor :num_cajas, :time, :delta, :average , num_customers:
   $users = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t']
   $row=[]
-  $caja1=[]
-  $caja2=[]
-  $caja3=[]
-  $caja4=[]
+  $cajas=[]
+
   $time=0
-  def initialize()
+  def initialize(num_cajas, time, delta)
+    @num_cajas = num_cajas
+    @time = time
+    @delta = delta
+    @average = 0
+    @num_customers = 0
   end
-  def simulator
+
+  def SimulatorOneRows
     rowlist
     print "FILA"
     print $row
@@ -77,6 +82,6 @@ class Simulator
   end
 end
 #init
-object = Simulator.new()
-object.simulator
-gets()
+# object = SimulatorOneRows.new()
+# object.SimulatorOneRows
+# gets()

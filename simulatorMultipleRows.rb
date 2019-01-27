@@ -1,13 +1,10 @@
-class Simulator
-  $users = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t']
-  $caja1=[]
-  $caja2=[]
-  $caja3=[]
-  $caja4=[]
+class SimulatorMultipleRows
+  $users = ['a','b','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z']
+  $cajas=[]
   $time=0
   def initialize()
   end
-  def simulator
+  def SimulatorMultipleRows
     multipleRows()
     print "FILAS POR CAJA"
     printCash()
@@ -87,6 +84,6 @@ class Simulator
   end
 end
 #init
-object = Simulator.new()
-object.simulator
-gets()
+# object = SimulatorMultipleRows.new()
+# object.SimulatorMultipleRows
+# gets()
