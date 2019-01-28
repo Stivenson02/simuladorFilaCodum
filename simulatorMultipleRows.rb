@@ -87,6 +87,6 @@ class SimulatorMultipleRows
   end
 end
 #init
-object = SimulatorMultipleRows.new()
-object.SimulatorMultipleRows
-gets()
+# object = SimulatorMultipleRows.new()
+# object.SimulatorMultipleRows
+# gets()
