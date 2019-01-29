@@ -57,11 +57,13 @@ attr_accessor :num_cajas, :time, :delta, :average , :num_customers
     end
   end
   def attend()
-    puts "CAJA 1", $caja1
-    puts "CAJA 2", $caja2
-    puts "CAJA 3", $caja3
-    puts "CAJA 4", $caja4
-
+    puts "|C|       |C|       |C|       |C|"
+    puts " #{$caja1[0]}         #{$caja2[0]}         #{$caja3[0]}         #{$caja4[0]}"
+    puts ""
+    # $row.length.times {|i| puts "                           |#{row[i]}|"}
+    long = $row.length
+    long.times {|i| puts "          |#{$row[i]}|"}
+    puts ""
     if $caja1.length >= 1
       $time=$time + rand(1..4)
         $caja1.delete_at(0)
